@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 			GameObject enemy = Spawner.Spawn(enemyPrefabName);
 			Vector3 pos = Camera.main.ViewportToWorldPoint (
 				new Vector3 (
-					1.1f, 
+					0.8f, 
 					Random.value, 
 					-Camera.main.transform.position.z
 				)

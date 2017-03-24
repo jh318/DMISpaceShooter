@@ -15,6 +15,13 @@ public class ProjectileController : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D c){
+		if (c.gameObject.GetComponent<EnemyController>()) {
+			c.gameObject.SetActive (false);
+			this.gameObject.SetActive (false);
+		}
+	}
+
 	public void Fire(Vector3 direction){
 		gameObject.SetActive (true);
 		body.velocity = direction * initialSpeed;
