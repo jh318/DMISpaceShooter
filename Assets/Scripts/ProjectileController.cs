@@ -17,7 +17,7 @@ public class ProjectileController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.GetComponent<EnemyController>()) {
-			c.gameObject.SetActive (false);
+			c.gameObject.GetComponent<EnemyController>().healthPoints--;
 			this.gameObject.SetActive (false);
 		}
 	}

@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public int healthPoints = 1;
+	public float speed = 1;
+
+	private int maxHealth = 0;
+
+	void SetMaxHealth(int x){ maxHealth = x; }
+	int GetMaxHealth(){ return maxHealth; }
+
+	void Awake(){
+		SetMaxHealth (healthPoints);
 	}
-	
-	// Update is called once per frame
+		
+
 	void Update () {
-		
+		if (healthPoints <= 0) {
+			gameObject.SetActive (false);
+			healthPoints = GetMaxHealth ();
+		}
 	}
+
+
+
+
+
 }
