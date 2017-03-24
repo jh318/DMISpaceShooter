@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4121174742789332}
   - component: {fileID: 212035347512626696}
   - component: {fileID: 50097159589576016}
-  - component: {fileID: 114283785278929078}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -62,20 +61,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114283785278929078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1224413477743164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce036edb82162554fb7df11fb7eb3dec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  shootSpeed: 1
-  pitch: 20
 --- !u!212 &212035347512626696
 SpriteRenderer:
   m_ObjectHideFlags: 1

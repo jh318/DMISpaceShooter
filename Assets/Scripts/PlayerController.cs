@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 
 	public float shootSpeed = 1;
 
+	public Transform gun;
+
 	//public float pitch = 20;
 
 	private Animator anim;
@@ -28,8 +30,8 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump")) {
 			GameObject bullet = Spawner.Spawn ("Square");
-			bullet.transform.position = transform.position;
-			bullet.GetComponent<ProjectileController> ().Fire (Vector2.right);
+			bullet.transform.position = gun.position;
+			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
 		}
 	}
 }
