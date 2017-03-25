@@ -7,14 +7,19 @@ public class EnemyController : MonoBehaviour {
 	public int healthPoints = 1;
 	public float speed = 1;
 
+	private Rigidbody2D body;
 	private int maxHealth = 0;
 
 	void SetMaxHealth(int x){ maxHealth = x; }
 	int GetMaxHealth(){ return maxHealth; }
 
-	void Awake(){
+	void Start(){
 		SetMaxHealth (healthPoints);
+		body = GetComponent<Rigidbody2D> ();
+		body.velocity = Vector2.right * -1 * speed;
 	}
+
+
 		
 
 	void Update () {
@@ -23,9 +28,4 @@ public class EnemyController : MonoBehaviour {
 			healthPoints = GetMaxHealth ();
 		}
 	}
-
-
-
-
-
 }

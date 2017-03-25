@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public static PlayerController player;
 	public float speed = 1;
-
 	public float shootSpeed = 1;
-
 	public Transform gun;
 
 	//public float pitch = 20;
 
 	private Animator anim;
-
 	private Rigidbody2D body;
+
+
+	void Awake(){
+		if (player == null) {
+			player = this;
+		}
+	}
 
 	void Start(){
 		body = GetComponent<Rigidbody2D> ();
@@ -32,6 +37,12 @@ public class PlayerController : MonoBehaviour {
 			GameObject bullet = Spawner.Spawn ("Square");
 			bullet.transform.position = gun.position;
 			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c){
+		if (c.gameObject.GetComponent<EnemyController> ()) {
+			gameObject.SetActive (false);
 		}
 	}
 }
