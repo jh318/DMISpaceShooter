@@ -128,7 +128,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4789805613520058, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.09743401
+      value: -4.34
       objectReference: {fileID: 0}
     - target: {fileID: 4789805613520058, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -341,6 +341,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1120286819425630, guid: 77c8712c1c0b93645b88ab2383c3842a, type: 2}
   - {fileID: 1482463292551528, guid: 500a420df9503d24ca2c05d782066e21, type: 2}
+  - {fileID: 1482463292551528, guid: efdfe526604e6d341b60872efba8e0e2, type: 2}
 --- !u!114 &1453082063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,4 +354,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabNames:
-  - Circle
+  - Enemy1
+  - Enemy2
