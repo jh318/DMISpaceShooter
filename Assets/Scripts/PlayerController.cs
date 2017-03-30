@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump")) {
 			GameObject bullet = Spawner.Spawn ("Square");
+			AudioManager.PlayEffect ("snd_explosion3", Random.Range(0.9f, 1.1f), Random.Range(0.8f, 1.0f));
 			bullet.transform.position = gun.position;
 			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
 		}
