@@ -495,4 +495,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 3
   speed: 1
+  explosion: {fileID: 198072473571265034, guid: c9cc1757ac0ff6240a2078828f365ef8,
+    type: 2}
   endPosition: {x: 0, y: 0, z: 0}

@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour {
 
 	public int healthPoints = 1;
 	public float speed = 1;
+	public ParticleSystem explosion;
 
 	private Rigidbody2D _body;
 	protected Rigidbody2D body {
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour {
 			gameObject.SetActive (false);
 			healthPoints = GetMaxHealth ();
 			AudioManager.PlayEffect ("snd_explosion9");
+			Instantiate (explosion, transform.position, Quaternion.identity);
 		}
 	}
 
