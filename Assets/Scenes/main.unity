@@ -134,6 +134,67 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &52580306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 52580309}
+  - component: {fileID: 52580308}
+  - component: {fileID: 52580307}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &52580307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52580306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256585201bfb3b4499849f49bd259254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabNames:
+  - Debris1
+  - Debris2
+  - BumbleBee
+--- !u!114 &52580308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52580306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f019d5ccb73d4789e4e78d52d7b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1120286819425630, guid: 77c8712c1c0b93645b88ab2383c3842a, type: 2}
+  - {fileID: 1482463292551528, guid: 500a420df9503d24ca2c05d782066e21, type: 2}
+  - {fileID: 1482463292551528, guid: efdfe526604e6d341b60872efba8e0e2, type: 2}
+  - {fileID: 1564472232053370, guid: 67fb395f1cbafe74a9ff44667eafd5df, type: 2}
+--- !u!4 &52580309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52580306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.40305936, y: -3.989002, z: 16.183878}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394285546
@@ -225,7 +286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &770440061
 Prefab:
@@ -264,7 +325,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4789805613520058, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1517394663164532, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
       propertyPath: m_Name
@@ -358,7 +419,7 @@ Transform:
   m_LocalScale: {x: 15, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &828555199
 MonoBehaviour:
@@ -389,8 +450,6 @@ GameObject:
   - component: {fileID: 1453082059}
   - component: {fileID: 1453082058}
   - component: {fileID: 1453082057}
-  - component: {fileID: 1453082062}
-  - component: {fileID: 1453082063}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -466,37 +525,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1453082062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453082056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23f019d5ccb73d4789e4e78d52d7b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1120286819425630, guid: 77c8712c1c0b93645b88ab2383c3842a, type: 2}
-  - {fileID: 1482463292551528, guid: 500a420df9503d24ca2c05d782066e21, type: 2}
-  - {fileID: 1482463292551528, guid: efdfe526604e6d341b60872efba8e0e2, type: 2}
-  - {fileID: 1564472232053370, guid: 67fb395f1cbafe74a9ff44667eafd5df, type: 2}
---- !u!114 &1453082063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453082056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256585201bfb3b4499849f49bd259254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabNames:
-  - Enemy1
-  - Enemy2
-  - BumbleBee
 --- !u!1 &2121465678
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +536,7 @@ GameObject:
   - component: {fileID: 2121465680}
   - component: {fileID: 2121465679}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: SpaceStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +647,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -865650950
+  randomSeed: -314128740
   InitialModule:
     serializedVersion: 3
     enabled: 1
