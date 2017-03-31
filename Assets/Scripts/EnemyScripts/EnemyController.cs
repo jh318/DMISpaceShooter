@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-	public int healthPoints = 1;
+	public int maxHealth = 3;
 	public float speed = 1;
-	public ParticleSystem explosion;
+	public string explosionName = "Explosion1Particle";
 
 	private Rigidbody2D _body;
 	protected Rigidbody2D body {
@@ -17,22 +17,34 @@ public class EnemyController : MonoBehaviour {
 			return _body;
 		}
 	}
-	protected int maxHealth = 0;
 
-	void SetMaxHealth(int x){ maxHealth = x; }
-	int GetMaxHealth(){ return maxHealth; }
+	protected int _healthPoints = 0;
+	public int healthPoints {
+		get {
+			return _healthPoints;
+		}
+		set {
+			if (_healthPoints > 0 && value <= 0) {
+				gameObject.SetActive (false);
+				AudioManager.PlayEffect ("snd_explosion9");
+				GameObject explosion = Spawner.Spawn (explosionName);
+				explosion.transform.position = transform.position;
+				explosion.SetActive (true);
+				explosion.GetComponent<ParticleSystem> ().Play ();
+			}
+			_healthPoints = value;
+		}
+	}
+
+	protected virtual void OnEnable(){
+		healthPoints = maxHealth;
+	}
 
 	protected virtual void Start(){
-		SetMaxHealth (healthPoints);
 	}
 		
 	protected virtual void Update () {
-		if (healthPoints <= 0) {
-			gameObject.SetActive (false);
-			healthPoints = GetMaxHealth ();
-			AudioManager.PlayEffect ("snd_explosion9");
-			Instantiate (explosion, transform.position, Quaternion.identity);
-		}
+		
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D c){

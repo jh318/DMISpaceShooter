@@ -88,10 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82af0ccd64e749408c2f2df4c14de24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 3
+  maxHealth: 2
   speed: 5
-  explosion: {fileID: 198072473571265034, guid: c9cc1757ac0ff6240a2078828f365ef8,
-    type: 2}
+  explosionName: Explosion1Particle
 --- !u!212 &212966216207411186
 SpriteRenderer:
   m_ObjectHideFlags: 1

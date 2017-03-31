@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 1;
 	public float shootSpeed = 1;
 	public Transform gun;
+	public string explosionName = "Explosion1Particle";
+
 
 	//public float pitch = 20;
 
@@ -43,7 +45,12 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.GetComponent<EnemyController> ()) {
+			AudioManager.PlayEffect ("snd_explosion9");
 			gameObject.SetActive (false);
+			GameObject explosion = Spawner.Spawn (explosionName);
+			explosion.transform.position = transform.position;
+			explosion.SetActive (true);
+			explosion.GetComponent<ParticleSystem> ().Play ();
 		}
 	}
 }

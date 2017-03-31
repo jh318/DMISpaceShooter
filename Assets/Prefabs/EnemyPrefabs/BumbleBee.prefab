@@ -493,8 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63797f8f039449428f396b6bfece20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 3
+  maxHealth: 3
   speed: 1
-  explosion: {fileID: 198072473571265034, guid: c9cc1757ac0ff6240a2078828f365ef8,
-    type: 2}
+  explosionName: Explosion1Particle
   endPosition: {x: 0, y: 0, z: 0}
