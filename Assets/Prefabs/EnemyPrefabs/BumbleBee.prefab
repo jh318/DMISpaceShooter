@@ -142,9 +142,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4489179286597980}
   - component: {fileID: 95980453809289956}
-  - component: {fileID: 114149702155564966}
   - component: {fileID: 50012179518301206}
   - component: {fileID: 61592033463605278}
+  - component: {fileID: 114337464272482102}
   m_Layer: 0
   m_Name: BumbleBee
   m_TagString: Untagged
@@ -482,7 +482,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114149702155564966
+--- !u!114 &114337464272482102
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -490,8 +490,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1564472232053370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336102f2d260811408f05930f80e5008, type: 3}
+  m_Script: {fileID: 11500000, guid: b63797f8f039449428f396b6bfece20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
   speed: 1
+  endPosition: {x: 0, y: 0, z: 0}
