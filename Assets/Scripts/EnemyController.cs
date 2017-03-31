@@ -18,14 +18,23 @@ public class EnemyController : MonoBehaviour {
 		body = GetComponent<Rigidbody2D> ();
 		body.velocity = Vector2.right * -1 * speed;
 	}
-
-
+		
 		
 
 	void Update () {
 		if (healthPoints <= 0) {
 			gameObject.SetActive (false);
 			healthPoints = GetMaxHealth ();
+			AudioManager.PlayEffect ("snd_explosion9");
+		}
+		if (body.velocity.x <= 0) {
+			body.velocity = Vector2.right * -1 * speed;
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c){
+		if (c.gameObject.GetComponent<EnemyController> () == true) {
+			healthPoints -= 3;
 		}
 	}
 }
