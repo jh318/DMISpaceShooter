@@ -337,7 +337,18 @@ Prefab:
       propertyPath: gun
       value: 
       objectReference: {fileID: 394285547}
-    m_RemovedComponents: []
+    - target: {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.1012311
+      objectReference: {fileID: 0}
+    - target: {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &828555194
@@ -349,9 +360,9 @@ GameObject:
   m_Component:
   - component: {fileID: 828555198}
   - component: {fileID: 828555197}
-  - component: {fileID: 828555196}
   - component: {fileID: 828555195}
   - component: {fileID: 828555199}
+  - component: {fileID: 828555196}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -390,18 +401,20 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &828555196
-BoxCollider:
+--- !u!61 &828555196
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 828555194}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
 --- !u!33 &828555197
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -487,6 +500,25 @@ Transform:
   m_PrefabParentObject: {fileID: 4079348683223350, guid: 023d28e56623af248a178cd4f4c7eecb,
     type: 2}
   m_PrefabInternal: {fileID: 770440061}
+--- !u!1 &1427437746 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1517394663164532, guid: 023d28e56623af248a178cd4f4c7eecb,
+    type: 2}
+  m_PrefabInternal: {fileID: 770440061}
+--- !u!61 &1427437747
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1427437746}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.011660576, y: -0.020401925}
+  serializedVersion: 2
+  m_Size: {x: 0.5569819, y: 0.15477729}
 --- !u!1 &1453082056
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +728,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 85047694
+  randomSeed: -2124945637
   InitialModule:
     serializedVersion: 3
     enabled: 1
