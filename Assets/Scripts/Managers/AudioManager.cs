@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour {
 			GameObject g = new GameObject ("MusicSource" + i);
 			g.transform.parent = transform;
 			AudioSource s = g.AddComponent<AudioSource> ();
+			s.loop = true;
 			musicSources [i] = s;
 		}
 		musicSources [currentMusicSource].clip = music;
@@ -71,6 +72,7 @@ public class AudioManager : MonoBehaviour {
 	public static void PlayMusic(){
 		instance.musicSources [instance.currentMusicSource].clip = instance.music;
 		instance.musicSources [instance.currentMusicSource].Play ();
+
 	}
 
 	public static void CrossfadeMusic(AudioClip clip, float duration){

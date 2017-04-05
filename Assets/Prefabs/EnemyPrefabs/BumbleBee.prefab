@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 50012179518301206}
   - component: {fileID: 61592033463605278}
   - component: {fileID: 114337464272482102}
+  - component: {fileID: 114338693191624570}
   m_Layer: 0
   m_Name: BumbleBee
   m_TagString: Untagged
@@ -285,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564472232053370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9983793, y: 0.4705391, z: -2.9372911}
+  m_LocalPosition: {x: 1.7741001, y: 0.992864, z: -2.9372911}
   m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 4172376602432162}
@@ -497,3 +498,16 @@ MonoBehaviour:
   speed: 1
   explosionName: Explosion1Particle
   endPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &114338693191624570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564472232053370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3316b2d3c4bbca43858adbebd8f5ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileName: RedLaserPrefab
+  speed: 1
