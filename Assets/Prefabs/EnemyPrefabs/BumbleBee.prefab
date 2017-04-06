@@ -510,4 +510,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileName: RedLaserPrefab
-  speed: 1
+  speed: 3

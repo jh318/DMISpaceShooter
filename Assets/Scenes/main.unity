@@ -348,6 +348,11 @@ Prefab:
       propertyPath: m_Offset.y
       value: -0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: maxhealth
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}

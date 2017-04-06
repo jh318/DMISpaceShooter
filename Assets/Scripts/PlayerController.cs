@@ -7,11 +7,25 @@ public class PlayerController : MonoBehaviour {
 	public static PlayerController player;
 	public float speed = 1;
 	public float shootSpeed = 1;
+	public int maxhealth = 3;
 	public Transform gun;
 	public string explosionName = "Explosion1Particle";
 
 
+
 	//public float pitch = 20;
+	private int _healthPoints = 0;
+	public int healthPoints {
+		get{ 
+			return _healthPoints;
+		}
+		set{ 
+			if (_healthPoints > 0 && value <= 0) {
+				gameObject.SetActive (false);
+			}
+			_healthPoints = value;
+		}
+	}
 
 	private Animator anim;
 	private Rigidbody2D body;
@@ -21,6 +35,10 @@ public class PlayerController : MonoBehaviour {
 		if (player == null) {
 			player = this;
 		}
+	}
+
+	void OnEnable(){
+		healthPoints = maxhealth;
 	}
 
 	void Start(){
@@ -46,11 +64,13 @@ public class PlayerController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.GetComponent<EnemyController> ()) {
 			AudioManager.PlayEffect ("snd_explosion9");
-			gameObject.SetActive (false);
+			healthPoints--;
 			GameObject explosion = Spawner.Spawn (explosionName);
 			explosion.transform.position = transform.position;
 			explosion.SetActive (true);
 			explosion.GetComponent<ParticleSystem> ().Play ();
 		}
 	}
+
+
 }
