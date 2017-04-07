@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour {
 	public int maxhealth = 3;
 	public Transform gun;
 	public string explosionName = "Explosion1Particle";
-
-
+	public float recoveryTime = 0.8f;
+	public ParticleSystem shieldParticles;
+	public Gradient shieldGradient;
 
 	//public float pitch = 20;
 	private int _healthPoints = 0;
@@ -24,8 +25,11 @@ public class PlayerController : MonoBehaviour {
 				gameObject.SetActive (false);
 			}
 			_healthPoints = value;
+			ParticleSystem.MainModule main = shieldParticles.main;
+			main.startColor = shieldGradient.Evaluate ((float)_healthPoints / (float)maxhealth);
 		}
 	}
+	private bool gunReady = true;
 
 	private Animator anim;
 	private Rigidbody2D body;
@@ -54,11 +58,10 @@ public class PlayerController : MonoBehaviour {
 		//transform.rotation.z = y * pitch;
 
 		if (Input.GetButtonDown ("Jump")) {
-			GameObject bullet = Spawner.Spawn ("Square");
-			AudioManager.PlayEffect ("snd_explosion3", Random.Range(0.9f, 1.1f), Random.Range(0.8f, 1.0f));
-			bullet.transform.position = gun.position;
-			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
+			ShootGun ();
 		}
+		body.angularVelocity = Mathf.Lerp (body.angularVelocity, 0, Time.deltaTime * recoveryTime);
+		transform.right = Vector3.Lerp (transform.right, Vector3.right, Time.deltaTime * recoveryTime);
 	}
 
 	void OnCollisionEnter2D(Collision2D c){
@@ -72,5 +75,21 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void ShootGun(){
+		if (gunReady) {
+			gunReady = false;
+			StartCoroutine("GunCoolDown");
+			GameObject bullet = Spawner.Spawn ("Square");
+			AudioManager.PlayEffect ("snd_explosion3", Random.Range(0.9f, 1.1f), Random.Range(0.8f, 1.0f));
+			bullet.transform.position = gun.position;
+			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
+		}
+	}
+
+	IEnumerator GunCoolDown(){
+		//GunReady = false;
+		yield return new WaitForSeconds (2);
+		gunReady = true;
+	}
 
 }
