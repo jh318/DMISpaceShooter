@@ -14,8 +14,13 @@ public class PlayerController : MonoBehaviour {
 	public float spinThreshold = 15;
 	public ParticleSystem shieldParticles;
 	public Gradient shieldGradient;
+	public ParticleSystem gunChargeParticles;
+	public Gradient gunChargeGradient;
+	public GameObject chargedShot;
+	public float chargedShotTime = 3.0f;
 
 	//public float pitch = 20;
+	private float chargedShotPower;
 	private int _healthPoints = 0;
 	public int healthPoints {
 		get{ 
@@ -60,11 +65,22 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump")) {
 			ShootGun ();
+			StartCoroutine ("ChargingShot");
 		}
+		if (Input.GetButtonUp("Jump") == true && chargedShotPower >= 3) {
+			StopCoroutine ("ChargingShot");
+			chargedShotPower = 0;
+			Debug.Log("Charge");
+		}
+
+
+
 		body.angularVelocity = Mathf.Lerp (body.angularVelocity, 0, Time.deltaTime * recoveryTime);
 		if (Mathf.Abs (body.angularVelocity) < spinThreshold) {
 			transform.right = Vector3.Lerp (transform.right, Vector3.right, Time.deltaTime * recoveryTime);
 		}
+
+
 	}
 
 	void OnCollisionEnter2D(Collision2D c){
@@ -86,6 +102,17 @@ public class PlayerController : MonoBehaviour {
 			AudioManager.PlayEffect ("snd_explosion3", Random.Range(0.9f, 1.1f), Random.Range(0.8f, 1.0f));
 			bullet.transform.position = gun.position;
 			bullet.GetComponent<ProjectileController> ().Fire (gun.right);
+		}
+	}
+
+	void ChargedShot(){
+		StartCoroutine ("ChargingShot");
+	}
+	IEnumerator ChargingShot(){
+		for (float t = 0; t < chargedShotTime; t += Time.deltaTime) {
+			chargedShotPower++;
+			Debug.Log("Charging...");
+			yield return new WaitForSeconds (1);
 		}
 	}
 
