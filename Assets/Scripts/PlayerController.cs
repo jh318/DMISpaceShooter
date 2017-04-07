@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform gun;
 	public string explosionName = "Explosion1Particle";
 	public float recoveryTime = 0.8f;
+	public float spinThreshold = 15;
 	public ParticleSystem shieldParticles;
 	public Gradient shieldGradient;
 
@@ -61,7 +62,9 @@ public class PlayerController : MonoBehaviour {
 			ShootGun ();
 		}
 		body.angularVelocity = Mathf.Lerp (body.angularVelocity, 0, Time.deltaTime * recoveryTime);
-		transform.right = Vector3.Lerp (transform.right, Vector3.right, Time.deltaTime * recoveryTime);
+		if (Mathf.Abs (body.angularVelocity) < spinThreshold) {
+			transform.right = Vector3.Lerp (transform.right, Vector3.right, Time.deltaTime * recoveryTime);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D c){

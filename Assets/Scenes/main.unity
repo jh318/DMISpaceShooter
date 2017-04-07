@@ -366,12 +366,12 @@ Prefab:
     - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
         type: 2}
       propertyPath: shieldGradient.key1.rgba
-      value: 4278253823
+      value: 2281765119
       objectReference: {fileID: 0}
     - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
         type: 2}
       propertyPath: shieldGradient.key0.rgba
-      value: 4278190335
+      value: 2281701631
       objectReference: {fileID: 0}
     - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
         type: 2}
@@ -397,6 +397,11 @@ Prefab:
         type: 2}
       propertyPath: shieldGradient.ctime0
       value: 11180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: recoveryTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
@@ -625,7 +630,7 @@ GameObject:
   - component: {fileID: 2008371749}
   - component: {fileID: 2008371748}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1159,7 +1164,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1228,7 +1233,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 9001
+      scalar: 2000
       maxCurve:
         serializedVersion: 2
         m_Curve:

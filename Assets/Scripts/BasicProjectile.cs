@@ -8,7 +8,7 @@ public class BasicProjectile : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D c){
 		if(c.gameObject.GetComponent<PlayerController>()){
-			c.gameObject.GetComponent<PlayerController> ().healthPoints -= damage;;
+			c.gameObject.GetComponent<PlayerController> ().healthPoints -= damage;
 			Debug.Log ("collidedwithplayer");
 		}
 		if (c.gameObject.GetComponent<EnemyController> ()) {
