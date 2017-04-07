@@ -3121,6 +3121,31 @@ Prefab:
       propertyPath: recoveryTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: gunChargeGradient.key0.rgba
+      value: 4278190335
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: gunChargeGradient.ctime0
+      value: 17155
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: gunChargeGradient.atime1
+      value: 46067
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: gunChargeGradient.key1.rgba
+      value: 3607101439
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374932701241986, guid: 023d28e56623af248a178cd4f4c7eecb,
+        type: 2}
+      propertyPath: gunChargeParticles
+      value: 
+      objectReference: {fileID: 555077553}
     m_RemovedComponents:
     - {fileID: 58644618850125604, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 023d28e56623af248a178cd4f4c7eecb, type: 2}
