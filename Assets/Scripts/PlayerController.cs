@@ -67,17 +67,22 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat ("Pitch", y);
 		//transform.rotation.z = y * pitch;
 
-		if (Input.GetButtonDown ("Jump")) {
-			ShootGun ();
+
+		if (Input.GetButtonDown("Jump")) {
 			StartCoroutine ("ChargingShot");
 		}
-		if (Input.GetButtonUp("Jump") == true && chargedShotPower >= 3) {
-			StopCoroutine ("ChargingShot");
+		if (Input.GetButtonUp ("Jump") == true && chargedShotPower >= 3) {
 			chargedShotPower = 0;
-			Debug.Log("Charge");
+			Debug.Log ("Charge");
 			ShootBebopGun ();
+			StopCoroutine ("ChargingShot");
+		} else if (Input.GetButtonUp ("Jump")) {
+			ShootGun ();
+			StopCoroutine ("ChargingShot");
+			gunChargeParticles.Stop ();
+			chargedShotPower = 0;
 		}
-
+	
 
 
 		body.angularVelocity = Mathf.Lerp (body.angularVelocity, 0, Time.deltaTime * recoveryTime);
@@ -130,8 +135,9 @@ public class PlayerController : MonoBehaviour {
 
 	void ShootBebopGun(){
 		Vector3 hitPosition = gun.position + gun.right * 10;
-		RaycastHit2D hit = Physics2D.CircleCast(gun.position, 0.125f, gun.right);
+		RaycastHit2D hit = Physics2D.CircleCast(gun.position, 0.3f, gun.right);
 		gunChargeParticles.Stop ();
+		AudioManager.PlayEffect ("snd_explosion16");
 		if (hit.collider != null) {
 			Debug.Log ("BebopHit!!!");
 			hitPosition = hit.transform.position;

@@ -122,6 +122,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: b2a9150d3fbcb364abbf64b66690c14b, type: 3}
   - {fileID: 8300000, guid: b6b588e15d559da4d91e06453ca7fb1a, type: 3}
+  - {fileID: 8300000, guid: ef5158f40597c1c4ebe51661a77b7be1, type: 3}
+  - {fileID: 8300000, guid: 34c5300039efe0249848dbd8c18b5d83, type: 3}
   sfxSourcesCount: 5
 --- !u!4 &33026953
 Transform:
@@ -3288,7 +3290,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8a20c15f057024840b6e507619f64bae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3311,7 +3313,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
