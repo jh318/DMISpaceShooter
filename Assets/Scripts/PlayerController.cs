@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour {
 	public GameObject chargedShot;
 	public float chargedShotTime = 3.0f;
 
+	//Bebop Gun
+	public int bebopDamage = 10;
+	public float bebopForce = 200.0f;
+
 	//public float pitch = 20;
 	private float chargedShotPower;
 	private int _healthPoints = 0;
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour {
 			StopCoroutine ("ChargingShot");
 			chargedShotPower = 0;
 			Debug.Log("Charge");
+			ShootBebopGun ();
 		}
 
 
@@ -112,6 +117,7 @@ public class PlayerController : MonoBehaviour {
 		for (float t = 0; t < chargedShotTime; t += Time.deltaTime) {
 			chargedShotPower++;
 			Debug.Log("Charging...");
+			gunChargeParticles.Play ();
 			yield return new WaitForSeconds (1);
 		}
 	}
@@ -122,4 +128,35 @@ public class PlayerController : MonoBehaviour {
 		gunReady = true;
 	}
 
+	void ShootBebopGun(){
+		Vector3 hitPosition = gun.position + gun.right * 10;
+		RaycastHit2D hit = Physics2D.CircleCast(gun.position, 0.125f, gun.right);
+		gunChargeParticles.Stop ();
+		if (hit.collider != null) {
+			Debug.Log ("BebopHit!!!");
+			hitPosition = hit.transform.position;
+			GetComponent<LineRenderer> ().SetPositions (new Vector3[] {gun.position, hit.transform.position});
+			if (hit.collider.gameObject.GetComponent<EnemyController> ()) {
+				hit.collider.gameObject.GetComponent<EnemyController> ().healthPoints -= bebopDamage;
+				hit.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (transform.right * bebopForce);
+			}
+		}
+		StartCoroutine ("BebopFired", hitPosition);
+	}
+
+	IEnumerator BebopFired(Vector3 hitPosition){
+		LineRenderer line = GetComponent<LineRenderer> ();
+		for (float t = 0; t < 0.3f; t += Time.deltaTime) {
+			float frac = t / 0.1f;
+			line.SetPositions (new Vector3[]{ gun.position, Vector3.Lerp (gun.position, hitPosition, frac) });
+			yield return new WaitForEndOfFrame ();
+		}
+
+		Vector3 start = gun.position;
+		for (float t = 0; t < 0.7f; t += Time.deltaTime) {
+			float frac = t / 0.7f;
+			line.SetPositions (new Vector3[]{ Vector3.Lerp (start, hitPosition, frac), hitPosition });
+			yield return new WaitForEndOfFrame ();
+		}
+	}
 }
