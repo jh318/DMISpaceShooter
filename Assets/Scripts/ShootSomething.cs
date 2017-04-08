@@ -5,13 +5,13 @@ using UnityEngine;
 public class ShootSomething : MonoBehaviour {
 
 	public string projectileName = "RedLaserPrefab";
-
 	public float speed;
 
 	GameObject projectilePrefab;
 	Vector3 spawnLocation;
 	Vector3 targetPosition;
 	GameObject target;
+
 
 	void OnEnable(){
 		//projectilePrefab = Spawner.Spawn(projectileName);
@@ -24,7 +24,7 @@ public class ShootSomething : MonoBehaviour {
 			spawnLocation = transform.position;
 			targetPosition = PlayerController.player.transform.position;
 			tempProjectile = Spawner.Spawn (projectileName);
-			tempProjectile.transform.position = spawnLocation;
+			tempProjectile.transform.position = this.gameObject.GetComponentInChildren<ChildGunPosition>().gameObject.transform.position;
 			tempProjectile.SetActive (true);
 			tempProjectile.GetComponent<Rigidbody2D> ().velocity = (targetPosition - spawnLocation) * speed;
 			yield return new WaitForSeconds (3);
