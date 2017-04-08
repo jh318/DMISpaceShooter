@@ -2,20 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour {
+	public static GameManager instance;
 
+	public Text scoreTextUI;
+	public int score = 0;
 	public string[] enemyPrefabNames;
 
 	void Start(){
 		StartCoroutine ("SpawnEnemiesCoroutine");
 	}
 
+	void Awake(){
+		if (instance == null) {
+			instance = this;
+		}
+	}
+
 	void Update(){
 		if(!PlayerController.player.isActiveAndEnabled){
 				StartCoroutine ("GameOverCountdown");
 			}
+		scoreTextUI.text = "Score: " + score;
 	}
 
 	IEnumerator SpawnEnemiesCoroutine(){

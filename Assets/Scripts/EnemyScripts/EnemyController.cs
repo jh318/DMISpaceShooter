@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour {
 		set {
 			if (_healthPoints > 0 && value <= 0) {
 				gameObject.SetActive (false);
+				GameManager.instance.score += 1;
 				AudioManager.PlayEffect ("snd_explosion9");
 				GameObject explosion = Spawner.Spawn (explosionName);
 				explosion.transform.position = transform.position;
